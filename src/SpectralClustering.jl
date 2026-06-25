@@ -1,8 +1,9 @@
 module SpectralClustering
 
-using LinearAlgebra: eigen
+using LinearAlgebra: eigen, Diagonal, I
 using Clustering: kmeans, assignments
 using Random
+using Combinatorics: permutations
 
 # Export Types
 export AbstractAffinity, AbstractLaplacian, AbstractDiscretization
@@ -13,6 +14,7 @@ export KMeansDiscretization, SelfTuningDiscretization, SVDDiscretization
 # Export API and Data Generators
 export make_circles, make_moons, make_blobs
 export compute_affinity, spectral_cluster, compute_laplacian, compute_eigenvectors, discretize
+export evaluate
 
 # Include Sub-files
 include("types.jl")
@@ -22,5 +24,6 @@ include("eigensolvers.jl")
 include("discretization.jl")
 include("datasets.jl")
 include("api.jl")
+include("evaluator.jl")
 
 end
